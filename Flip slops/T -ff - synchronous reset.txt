@@ -1,0 +1,34 @@
+
+
+
+//  T Flip-Flop (Toggle Flip-Flop)
+
+// Design a Verilog module for a T Flip-Flop with synchronous reset.
+
+// Inputs: clk, reset, T
+
+// Output: Q
+
+// On rising edge of clk, if T is 1, toggle Q, else keep Q
+
+// If reset is high, Q becomes 0 on next clock edge
+
+
+
+module t_ff(
+  input clk,reset,t,
+  output reg q
+);
+
+  always @ (posedge clk)begin
+    
+    if(reset)
+      q<=0;
+    else if(t)
+      q <= ~q;
+
+    
+  end
+  
+endmodule
+

@@ -1,0 +1,36 @@
+
+// SR Flip-Flop (with Invalid State Handling)
+
+// Create a Verilog module for an edge-triggered SR Flip-Flop with synchronous operation.
+
+// Inputs: clk, S, R             Output: Q
+
+// Handle invalid condition (S=1, R=1) by holding Q as previous value
+
+// Use synchronous behavior (all logic on clock edge)
+
+
+
+
+module sr_ff(
+  input clk,s,r,
+  output reg q
+);
+  
+  always @ (posedge clk)begin
+  
+    case({s,r})
+      
+      2'b00	: q <= q;
+      2'b01	: q <= 0;
+      2'b10	: q <= 1;
+      2'b11 : q <= q;
+      
+    endcase
+    
+  end
+  
+endmodule
+
+
+
